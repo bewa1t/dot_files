@@ -10,7 +10,7 @@ Install [Homebrew](https://brew.sh) first, then:
 curl -fsSL https://raw.githubusercontent.com/bewa1t/dot_files/main/install.sh | sh
 ```
 
-This clones the repo to `~/projects/dot_files` (override with `DOT_DIR=...`) and runs:
+This clones the repo to `~/.dotfiles` (override with `DOT_DIR=...`) and runs:
 
 1. `setup/symlinks.sh` – links the configs into place. A real file already at a
    target is moved to `<target>.backup`.

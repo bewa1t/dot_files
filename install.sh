@@ -5,7 +5,7 @@
 # what's already done. Set DOT_DIR to clone somewhere else.
 set -e
 REPO="https://github.com/bewa1t/dot_files.git"
-DOT_DIR="${DOT_DIR:-$HOME/projects/dot_files}"
+DOT_DIR="${DOT_DIR:-$HOME/.dotfiles}"
 
 if ! command -v brew >/dev/null 2>&1 && [ ! -x /opt/homebrew/bin/brew ]; then
   echo "Homebrew is required first: https://brew.sh" >&2
