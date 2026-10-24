@@ -2,6 +2,8 @@ theme = "auto"
 
 [editor]
 default-yank-register = "+"
+# Don't copy mouse selections to the clipboard (also disables middle-click paste)
+middle-click-paste = false
 line-number = "relative"
 cursorline = true
 color-modes = true
