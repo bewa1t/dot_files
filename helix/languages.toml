@@ -1,0 +1,32 @@
+# zsh: Helix has no built-in zsh grammar and highlights zsh as bash, which
+# breaks on zsh-only syntax. Grammar + queries live in this repo
+# (grammars/tree-sitter-zsh, runtime/queries/zsh); build with setup/helix-grammars.sh.
+[[language]]
+name = "zsh"
+scope = "source.zsh"
+injection-regex = "zsh"
+file-types = [
+  "zsh", "zshenv", "zlogin", "zlogout", "zprofile", "zshrc", "zsh-theme",
+  "zshrc_Apple_Terminal",
+  { glob = ".zshenv" }, { glob = ".zlogin" }, { glob = ".zlogout" },
+  { glob = ".zprofile" }, { glob = ".zshrc" }, { glob = ".zimrc" },
+]
+shebangs = ["zsh"]
+comment-token = "#"
+indent = { tab-width = 4, unit = "    " }
+
+# Helix's default bash entry minus the zsh file types and shebang (above).
+[[language]]
+name = "bash"
+injection-regex = "(shell|bash|sh)"
+file-types = [
+  "sh", "bash", "ash", "dash", "ksh", "mksh", "eclass", "ebuild", "bazelrc",
+  "Renviron", "cshrc", "tcshrc", "bashrc_Apple_Terminal",
+  { glob = "i3/config" }, { glob = "sway/config" }, { glob = "tmux.conf" },
+  { glob = ".bash_history" }, { glob = ".bash_login" }, { glob = ".bash_logout" },
+  { glob = ".bash_profile" }, { glob = ".bashrc" }, { glob = ".profile" },
+  { glob = "APKBUILD" }, { glob = ".bash_aliases" }, { glob = ".Renviron" },
+  { glob = ".xprofile" }, { glob = ".xsession" }, { glob = ".xsessionrc" },
+  { glob = ".yashrc" }, { glob = ".yash_profile" }, { glob = ".hushlogin" },
+]
+shebangs = ["sh", "bash", "dash"]

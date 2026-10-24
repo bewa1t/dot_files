@@ -14,6 +14,6 @@ rules = [
 	# Use 'open' for Microsoft Office files and PDFs
 	{ mime = "application/{pdf,msword,vnd.openxmlformats-officedocument.*,vnd.ms-*}", use = "open" },
 	# Fallback: Use '$EDITOR' for everything else
-	{ name = "*", use = "edit" },
+	{ url = "*", use = "edit" },
 ]
 

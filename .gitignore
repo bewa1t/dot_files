@@ -1,0 +1,5 @@
+alacritty/theme.toml
+helix/themes/auto.toml
+env/*.sh
+helix/runtime/grammars/
+aliases/*.sh

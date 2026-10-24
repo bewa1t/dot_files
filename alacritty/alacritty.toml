@@ -1,0 +1,10 @@
+[general]
+import = ["~/.config/alacritty/theme.toml"]
+live_config_reload = true
+
+[font]
+normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
+size = 13
+
+[window]
+dimensions = { columns = 250, lines = 100 }

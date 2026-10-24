@@ -1,0 +1,9 @@
+#!/bin/sh
+# copy-file-ref <file> <start line> <end line>
+# Copies "file:line" (or "file:start-end") to the macOS clipboard. Used by space L.
+if [ "$2" = "$3" ]; then
+    printf '%s:%s' "$1" "$2"
+else
+    printf '%s:%s-%s' "$1" "$2" "$3"
+fi | pbcopy
+printf 'reference copied'
