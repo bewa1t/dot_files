@@ -20,3 +20,4 @@ link wezterm.lua   ~/.wezterm.lua
 link alacritty     ~/.config/alacritty
 link helix         ~/.config/helix
 link yazi          ~/.config/yazi
+link git           ~/.config/git
