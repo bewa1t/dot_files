@@ -20,7 +20,7 @@ render = true
 # space L: copy "file:line" (or "file:start-end" for a multi-line selection)
 # to the macOS clipboard
 [keys.normal.space]
-L = ':echo %sh{~/.config/helix/copy-file-ref "%{buffer_name}" %{selection_line_start} %{selection_line_end}}'
+L = { label = "Copy path + line range", command = ':echo %sh{~/.config/helix/copy-file-ref "%{buffer_name}" %{selection_line_start} %{selection_line_end}}' }
 
 [keys.select.space]
-L = ':echo %sh{~/.config/helix/copy-file-ref "%{buffer_name}" %{selection_line_start} %{selection_line_end}}'
+L = { label = "Copy path + line range", command = ':echo %sh{~/.config/helix/copy-file-ref "%{buffer_name}" %{selection_line_start} %{selection_line_end}}' }
