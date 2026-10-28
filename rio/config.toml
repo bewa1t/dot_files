@@ -1,5 +1,8 @@
 # Same look as alacritty/alacritty.toml.
 
+# Don't copy mouse selections to the clipboard
+copy-on-select = false
+
 # Rio switches these itself with macOS light/dark mode (no theme-sync needed).
 [adaptive-theme]
 light = "catppuccin-latte"

@@ -21,3 +21,4 @@ source "$DOT_DIR/setup/ai-tooling.zsh"
 source "$DOT_DIR/setup/aliases.zsh"
 source "$DOT_DIR/setup/clock.zsh"
 source "$DOT_DIR/setup/yazi.zsh"
+

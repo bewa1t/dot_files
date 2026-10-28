@@ -32,6 +32,7 @@ Every step is safe to re-run, so the same command also updates a machine.
 | `env/` | `~/.env`: local env vars and secrets. `*.sh` is git-ignored. |
 | `aliases/` | `~/.aliases`: local aliases. `*.sh` is git-ignored. |
 | `alacritty/`, `rio/`, `helix/`, `yazi/` | App configs, linked into `~/.config/` |
+| `herdr/config.toml` | herdr config, linked as `~/.config/herdr/config.toml` (only the file) |
 | `git/` | `~/.config/git`: shared git defaults (Helix as editor and merge tool) and global ignore. Name and email stay in `~/.gitconfig`. |
 | `theme-sync/` | Light/dark theme switcher + its LaunchAgent template |
 | `oh-my-zsh-custom/` | `$ZSH_CUSTOM` |

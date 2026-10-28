@@ -22,3 +22,5 @@ link rio           ~/.config/rio
 link helix         ~/.config/helix
 link yazi          ~/.config/yazi
 link git           ~/.config/git
+# only the file: ~/.config/herdr also holds herdr's sockets, logs and sessions
+link herdr/config.toml ~/.config/herdr/config.toml

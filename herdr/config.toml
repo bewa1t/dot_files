@@ -1,0 +1,11 @@
+onboarding = false
+
+[ui]
+# Don't copy mouse selections to the clipboard
+copy_on_select = false
+# sidebar (agents and spaces) width in columns; default 26, minimum 18
+sidebar_width = 20
+status_indicators = "dots"
+
+[ui.toast]
+delivery = "off"
