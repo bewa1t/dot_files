@@ -47,6 +47,9 @@
     "swift": {
       "auto_start": true,
       "enabled": true,
+      // Fresh ships none, so the root was the file's own folder and
+      // sourcekit-lsp never saw the project's buildServer.json
+      "root_markers": ["buildServer.json", "Package.swift", ".git"],
       "process_limits": {
         "max_memory_percent": 50,
         "max_cpu_percent": 90,
