@@ -12,7 +12,7 @@ config.initial_rows = 40
 
 -- or, changing the font size and color scheme.
 config.font_size = 15
-config.font = wezterm.font 'JetBrains Mono'
+config.font = wezterm.font 'iMWritingMono Nerd Font'
 
 -- Follow the macOS light/dark setting (re-evaluated when it changes)
 local appearance = wezterm.gui and wezterm.gui.get_appearance() or 'Dark'

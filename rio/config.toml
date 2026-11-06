@@ -9,7 +9,7 @@ light = "catppuccin-latte"
 dark = "catppuccin-mocha"
 
 [fonts]
-family = "JetBrainsMono Nerd Font"
+family = "iMWritingMono Nerd Font"
 size = 13
 
 [window]
