@@ -8,4 +8,4 @@ sidebar_width = 20
 status_indicators = "dots"
 
 [ui.toast]
-delivery = "off"
+delivery = "herdr"

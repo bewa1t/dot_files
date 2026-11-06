@@ -8,3 +8,6 @@ size = 13
 
 [window]
 dimensions = { columns = 250, lines = 100 }
+
+[cursor]
+style = { shape = "Beam", blinking = "Off" }

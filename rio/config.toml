@@ -15,3 +15,7 @@ size = 13
 [window]
 columns = 250
 rows = 100
+
+[cursor]
+shape = "beam"
+blinking = false
