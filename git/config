@@ -1,12 +1,12 @@
 # Shared git defaults, linked to ~/.config/git/config. Git reads this and
 # ~/.gitconfig; keep user.name / user.email in ~/.gitconfig (per machine).
 [core]
-	editor = hx
+	editor = fresh
 [merge]
-	tool = hx
+	tool = fresh
 	conflictstyle = zdiff3
-[mergetool "hx"]
-	cmd = hx \"$MERGED\"
+[mergetool "fresh"]
+	cmd = fresh \"$MERGED\"
 	trustExitCode = false
 [mergetool]
 	keepBackup = false

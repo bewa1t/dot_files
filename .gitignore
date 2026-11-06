@@ -3,3 +3,8 @@ helix/themes/auto.toml
 env/*.sh
 helix/runtime/grammars/
 aliases/*.sh
+fresh/themes/auto.json
+# written by Fresh at startup
+fresh/types/
+fresh/tsconfig.json
+fresh/logs/

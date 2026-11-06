@@ -12,6 +12,7 @@ unset _check
 # Setup: one file per tool, each skips itself if its tool is missing.
 source "$DOT_DIR/setup/envs.zsh"
 source "$DOT_DIR/setup/helix.zsh"
+source "$DOT_DIR/setup/fresh.zsh"
 source "$DOT_DIR/setup/oh-my-zsh.zsh"
 source "$DOT_DIR/setup/sdkman.zsh"
 source "$DOT_DIR/setup/nvm.zsh"
