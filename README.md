@@ -20,6 +20,9 @@ This clones the repo to `~/.dotfiles` (override with `DOT_DIR=...`) and runs:
    Helix and Fresh between Catppuccin latte/mocha with macOS light/dark mode.
 
 Every step is safe to re-run, so the same command also updates a machine.
+After that, a new shell runs these steps by itself whenever the checked-out
+commit changes (e.g. after `git pull`), and retries them if one failed. Delete
+`~/.local/state/dotfiles/setup-done` to force a re-run.
 
 ## Layout
 

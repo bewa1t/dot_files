@@ -12,7 +12,7 @@ tool() {
     has "$1" "$2" && return 0
     if [[ -n "$DOT_INSTALL" ]]; then
         echo "Installing $1: $3"
-        eval "$3"
+        eval "$3" || { DOT_FAILED=1; return 1; }
     else
         echo "Warning: $1 is not installed (not on PATH or at $2)." >&2
         return 1
