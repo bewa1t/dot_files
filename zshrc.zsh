@@ -10,7 +10,7 @@ _head="$(git -C "$DOT_DIR" rev-parse HEAD 2>/dev/null)"
 if [[ -n "$_head" && "$(cat "$_stamp" 2>/dev/null)" != "$_head" ]]; then
     echo "dotfiles: running setup for ${_head:0:7}"
     _failed=()
-    for _step in symlinks.sh install.sh helix-grammars.sh theme-sync.sh; do
+    for _step in symlinks.sh install.sh helix-grammars.sh theme-sync.sh ai-vim-mode.sh; do
         "$DOT_DIR/setup/$_step" || _failed+=("$_step")
     done
     if (( $#_failed )); then
@@ -31,7 +31,6 @@ unset _check
 # Setup: one file per tool, each skips itself if its tool is missing.
 source "$DOT_DIR/setup/envs.zsh"
 source "$DOT_DIR/setup/helix.zsh"
-source "$DOT_DIR/setup/fresh.zsh"
 source "$DOT_DIR/setup/oh-my-zsh.zsh"
 source "$DOT_DIR/setup/sdkman.zsh"
 source "$DOT_DIR/setup/nvm.zsh"

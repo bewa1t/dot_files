@@ -1,5 +1,5 @@
 #!/bin/sh
-# macOS: install + load the LaunchAgent that keeps Alacritty/Helix/Fresh themes in
+# macOS: install + load the LaunchAgent that keeps Alacritty/Helix themes in
 # sync with light/dark mode. The plist is a template, since launchd needs
 # absolute paths. Safe to re-run.
 [ "$(uname)" = Darwin ] || exit 0

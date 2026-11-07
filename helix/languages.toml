@@ -30,3 +30,26 @@ file-types = [
   { glob = ".yashrc" }, { glob = ".yash_profile" }, { glob = ".hushlogin" },
 ]
 shebangs = ["sh", "bash", "dash"]
+
+# TypeScript/JavaScript: vtsls bundles its own TypeScript. Helix's default,
+# typescript-language-server, needs a tsserver, and Homebrew's typescript 7
+# (the Go port) has none, so it only worked in projects with node_modules.
+[language-server.vtsls]
+command = "vtsls"
+args = ["--stdio"]
+
+[[language]]
+name = "typescript"
+language-servers = ["vtsls"]
+
+[[language]]
+name = "tsx"
+language-servers = ["vtsls"]
+
+[[language]]
+name = "javascript"
+language-servers = ["vtsls"]
+
+[[language]]
+name = "jsx"
+language-servers = ["vtsls"]

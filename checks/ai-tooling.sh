@@ -2,4 +2,5 @@
 tool herdr    "$HOME/.local/bin/herdr"       'curl -fsSL https://herdr.dev/install.sh | sh'
 tool claude   "$HOME/.local/bin/claude"      'curl -fsSL https://claude.ai/install.sh | bash'
 tool codex    /opt/homebrew/bin/codex        'brew install --cask codex'
+tool pi       "$HOME/bin/pi"                 'curl -fsSL https://pi.dev/install.sh | sh'
 tool opencode "$HOME/.opencode/bin/opencode" 'curl -fsSL https://opencode.ai/install | bash'

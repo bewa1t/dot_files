@@ -1,6 +1,6 @@
 # dot_files
 
-My dotfiles: zsh, Fresh (Helix as fallback), Alacritty, yazi, and the tools they need. macOS + Homebrew.
+My dotfiles: zsh, Helix, Alacritty, yazi, and the tools they need. macOS + Homebrew.
 
 ## Install
 
@@ -16,8 +16,10 @@ This clones the repo to `~/.dotfiles` (override with `DOT_DIR=...`) and runs:
    target is moved to `<target>.backup`.
 2. `setup/install.sh` – installs every tool from `checks/` that's missing.
 3. `setup/helix-grammars.sh` – compiles the zsh grammar for Helix.
-4. `setup/theme-sync.sh` – loads the LaunchAgent that switches Alacritty,
-   Helix and Fresh between Catppuccin latte/mocha with macOS light/dark mode.
+4. `setup/theme-sync.sh` – loads the LaunchAgent that switches Alacritty and
+   Helix between Catppuccin latte/mocha with macOS light/dark mode.
+5. `setup/ai-vim-mode.sh` – turns on vim mode in Claude Code, Codex and Pi
+   (via `pi/modal-editor.ts`) if they're installed and the setting isn't set.
 
 Every step is safe to re-run, so the same command also updates a machine.
 After that, a new shell runs these steps by itself whenever the checked-out
@@ -34,10 +36,9 @@ commit changes (e.g. after `git pull`), and retries them if one failed. Delete
 | `setup/*.sh` | The install steps above (run by hand or by `install.sh`). |
 | `env/` | `~/.env`: local env vars and secrets. `*.sh` is git-ignored. |
 | `aliases/` | `~/.aliases`: local aliases. `*.sh` is git-ignored. |
-| `alacritty/`, `rio/`, `helix/`, `fresh/`, `yazi/` | App configs, linked into `~/.config/` |
-| `fresh/` | Fresh is `$EDITOR` when installed (`setup/fresh.zsh` runs after `setup/helix.zsh`). `config.json` is also what the Settings UI saves to. `init.ts` adds Ctrl+Alt+L: copy `file:line` to the clipboard (Helix's space L). |
+| `alacritty/`, `rio/`, `helix/`, `yazi/` | App configs, linked into `~/.config/` |
 | `herdr/config.toml` | herdr config, linked as `~/.config/herdr/config.toml` (only the file) |
-| `git/` | `~/.config/git`: shared git defaults (Fresh as editor and merge tool) and global ignore. Name and email stay in `~/.gitconfig`. |
+| `git/` | `~/.config/git`: shared git defaults (Helix as editor and merge tool) and global ignore. Name and email stay in `~/.gitconfig`. |
 | `theme-sync/` | Light/dark theme switcher + its LaunchAgent template |
 | `oh-my-zsh-custom/` | `$ZSH_CUSTOM` |
 

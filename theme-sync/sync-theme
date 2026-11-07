@@ -1,5 +1,5 @@
 #!/bin/sh
-# Match Alacritty, Helix and Fresh to the macOS light/dark appearance.
+# Match Alacritty + Helix to the macOS light/dark appearance.
 if defaults read -g AppleInterfaceStyle 2>/dev/null | grep -q Dark; then
   flavor=mocha
 else
@@ -7,5 +7,3 @@ else
 fi
 cp ~/.config/alacritty/themes/catppuccin-$flavor.toml ~/.config/alacritty/theme.toml
 printf 'inherits = "catppuccin_%s"\n' $flavor > ~/.config/helix/themes/auto.toml
-# Fresh finds themes by their "name" field, so rename the copy to "auto"
-sed 's/"name": "[^"]*"/"name": "auto"/' ~/.config/fresh/themes/catppuccin-$flavor.json > ~/.config/fresh/themes/auto.json
