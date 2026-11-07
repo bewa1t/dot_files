@@ -6,8 +6,12 @@ DOT_DIR="${${(%):-%x}:A:h}"
 # themselves: once per commit, so again after a pull, and again on the next
 # shell if any step failed.
 _stamp="$HOME/.local/state/dotfiles/setup-done"
-_head="$(git -C "$DOT_DIR" rev-parse HEAD 2>/dev/null)"
-if [[ -n "$_head" && "$(cat "$_stamp" 2>/dev/null)" != "$_head" ]]; then
+# Read HEAD's commit from .git without starting git; fall back to git for
+# packed refs and linked worktrees (where .git is a file).
+_head=$(<"$DOT_DIR/.git/HEAD") 2>/dev/null
+[[ $_head == "ref: "* ]] && _head=$(<"$DOT_DIR/.git/${_head#ref: }") 2>/dev/null
+(( ${#_head} == 40 )) || _head="$(git -C "$DOT_DIR" rev-parse HEAD 2>/dev/null)"
+if [[ -n "$_head" && "$(<"$_stamp")" != "$_head" ]] 2>/dev/null; then
     echo "dotfiles: running setup for ${_head:0:7}"
     _failed=()
     for _step in symlinks.sh install.sh helix-grammars.sh theme-sync.sh ai-vim-mode.sh; do
@@ -31,7 +35,7 @@ unset _check
 # Setup: one file per tool, each skips itself if its tool is missing.
 source "$DOT_DIR/setup/envs.zsh"
 source "$DOT_DIR/setup/helix.zsh"
-source "$DOT_DIR/setup/oh-my-zsh.zsh"
+source "$DOT_DIR/setup/zsh.zsh"
 source "$DOT_DIR/setup/sdkman.zsh"
 source "$DOT_DIR/setup/nvm.zsh"
 source "$DOT_DIR/setup/pyenv.zsh"

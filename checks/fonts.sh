@@ -1,5 +1,5 @@
 # fonts: iM Writing Nerd Font (iA Writer); configs use the "iMWritingMono Nerd Font" family.
-if [[ "$(uname)" == Darwin ]]; then
+if [[ "$OSTYPE" == darwin* ]]; then
     tool "iMWritingMono Nerd Font" "$HOME/Library/Fonts/iMWritingMonoNerdFont-Regular.ttf" \
         'brew install --cask font-im-writing-nerd-font'
 else
