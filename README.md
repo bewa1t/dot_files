@@ -18,7 +18,10 @@ This clones the repo to `~/.dotfiles` (override with `DOT_DIR=...`) and runs:
 3. `setup/helix-grammars.sh` – compiles the zsh grammar for Helix.
 4. `setup/theme-sync.sh` – loads the LaunchAgent that switches Alacritty and
    Helix between Catppuccin latte/mocha with macOS light/dark mode.
-5. `setup/ai-vim-mode.sh` – turns on vim mode in Claude Code, Codex and Pi
+5. `setup/menu-bar.sh` – builds `menu-bar-sync` and loads its LaunchAgent. The
+   menu bar hides "Always" with an external display and "In Full Screen Only"
+   without one.
+6. `setup/ai-vim-mode.sh` – turns on vim mode in Claude Code, Codex and Pi
    (via `pi/modal-editor.ts`) if they're installed and the setting isn't set.
 
 Every step is safe to re-run, so the same command also updates a machine.
@@ -40,6 +43,7 @@ commit changes (e.g. after `git pull`), and retries them if one failed. Delete
 | `herdr/config.toml` | herdr config, linked as `~/.config/herdr/config.toml` (only the file) |
 | `git/` | `~/.config/git`: shared git defaults (Helix as editor and merge tool) and global ignore. Name and email stay in `~/.gitconfig`. |
 | `theme-sync/` | Light/dark theme switcher + its LaunchAgent template |
+| `utils/menu_bar/` | Watcher that modifies menu bar hide options on MacBooks |
 
 ## Local-only files
 

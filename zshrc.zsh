@@ -14,7 +14,13 @@ _head=$(<"$DOT_DIR/.git/HEAD") 2>/dev/null
 if [[ -n "$_head" && "$(<"$_stamp")" != "$_head" ]] 2>/dev/null; then
     echo "dotfiles: running setup for ${_head:0:7}"
     _failed=()
-    for _step in symlinks.sh install.sh helix-grammars.sh theme-sync.sh ai-vim-mode.sh; do
+    for _step in \
+        symlinks.sh \
+        install.sh \
+        helix-grammars.sh \
+        theme-sync.sh \
+        menu-bar.sh \
+        ai-vim-mode.sh; do
         "$DOT_DIR/setup/$_step" || _failed+=("$_step")
     done
     if (( $#_failed )); then
