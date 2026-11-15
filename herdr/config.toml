@@ -7,6 +7,12 @@ copy_on_select = false
 sidebar_width = 20
 status_indicators = "symbols"
 
+[theme]
+# Follow the terminal's light/dark mode (Rio switches with macOS)
+auto_switch = true
+dark_name = "catppuccin"
+light_name = "catppuccin-latte"
+
 [ui.toast]
 delivery = "herdr"
 
