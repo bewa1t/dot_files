@@ -39,7 +39,7 @@ commit changes (e.g. after `git pull`), and retries them if one failed. Delete
 | `env/` | `~/.env`: local env vars and secrets. `*.sh` is git-ignored. |
 | `aliases/` | `~/.aliases`: local aliases. `*.sh` is git-ignored. |
 | `alacritty/`, `rio/`, `nvim/`, `yazi/` | App configs, linked into `~/.config/` |
-| `rio/themes/` | Git submodule: [bewa1t/seoul256-rio](https://github.com/bewa1t/seoul256-rio) (seoul256 dark/light). `setup/symlinks.sh` checks it out. |
+| `rio/themes/` | Copy of [bewa1t/seoul256-rio](https://github.com/bewa1t/seoul256-rio) (seoul256 dark/light), added with `git subtree`, so clone and pull include it. Get a new version: `git subtree pull --prefix rio/themes https://github.com/bewa1t/seoul256-rio main --squash` |
 | `herdr/config.toml` | herdr config, linked as `~/.config/herdr/config.toml` (only the file) |
 | `git/` | `~/.config/git`: shared git defaults (Neovim as editor and merge tool) and global ignore. Name and email stay in `~/.gitconfig`. |
 | `theme-sync/` | Light/dark theme switcher + its LaunchAgent template |
