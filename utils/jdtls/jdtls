@@ -1,0 +1,25 @@
+#!/bin/sh
+# Eclipse JDT LS (Java language server) for Neovim.
+# Built from the fork bewa1t/eclipse.jdt.ls by setup/jdtls.sh, which also links
+# this file as ~/.local/bin/jdtls.
+#
+# - Heap: 1 GB at start, 5 GB at most.
+# - Java 25 runs the server (jdtls needs 25+). Projects use the runtimes that the
+#   editor config sets (java.configuration.runtimes).
+# - One workspace data folder for each client program and project folder: Eclipse
+#   locks a workspace, so two programs can then have the same project open at once.
+JDTLS_HOME="${JDTLS_HOME:-$HOME/projects/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository}"
+JAVA_HOME="${JDTLS_JAVA_HOME:-$(ls -d "$HOME"/.sdkman/candidates/java/25* 2>/dev/null | tail -n 1)}"
+HEAP_START=1g
+HEAP_MAX=5g
+
+editor=$(basename "$(ps -o comm= -p "$PPID")")
+project=$(pwd -P)
+data="$HOME/Library/Caches/jdtls/$editor/$(basename "$project")-$(printf %s "$project" | shasum | cut -c1-8)"
+
+export JAVA_HOME
+
+# -Xlog:disable: JVM warnings go to stdout, which is the LSP channel.
+exec "$JDTLS_HOME/bin/jdtls" \
+  --jvm-arg=-Xms$HEAP_START --jvm-arg=-Xmx$HEAP_MAX --jvm-arg=-Xlog:disable \
+  -data "$data" "$@"

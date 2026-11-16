@@ -1,0 +1,3 @@
+[submodule "rio/themes"]
+	path = rio/themes
+	url = https://github.com/bewa1t/seoul256-rio.git

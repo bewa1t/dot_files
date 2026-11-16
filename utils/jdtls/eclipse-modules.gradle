@@ -1,0 +1,84 @@
+// Gradle init script for jdtls (Buildship): fixes to the Eclipse model that the
+// build itself does not give Buildship:
+// 1. the Java level of projects with multi-release source sets (see below),
+// 2. which dependencies of a modular project (src/main/java/module-info.java) are
+//    Java modules.
+//
+// Some builds (Elasticsearch) turn off Gradle's module path inference and pass
+// --module-path to javac themselves. Gradle's Eclipse model then puts every
+// dependency on the class path, and Eclipse reports false errors such as
+// "The type org.apache.logging.log4j.LogManager is not accessible".
+//
+// This marks, in modular projects only:
+// - main-scope jars that are modules (module-info.class or Automatic-Module-Name),
+// - main-scope dependencies on other modular projects of the build,
+// - the JRE container,
+// with module=true. Test-only dependencies stay on the class path.
+// Buildship applies eclipse.classpath.file.whenMerged to its model.
+
+import java.util.jar.JarFile
+
+def moduleJars = [:]  // jar path -> is a module (cache: many projects share jars)
+
+def isModuleJar = { String path ->
+    moduleJars.computeIfAbsent(path) {
+        def f = new File(path)
+        if (!f.isFile() || !path.endsWith('.jar')) return false
+        new JarFile(f).withCloseable { jar ->
+            jar.getEntry('module-info.class') != null ||
+                jar.entries().any { it.name ==~ /META-INF\/versions\/\d+\/module-info\.class/ } ||
+                jar.manifest?.mainAttributes?.getValue('Automatic-Module-Name') != null
+        }
+    }
+}
+
+def isModular = { project -> project.file('src/main/java/module-info.java').isFile() }
+
+def usedByMain = { entry -> (entry.entryAttributes['gradle_used_by_scope'] ?: 'main').split(',').contains('main') }
+
+// Eclipse project name -> modular. Built on first use: the Eclipse model gives
+// projects with the same name unique names (x-content -> libs-x-content) after
+// projectsEvaluated, and project dependencies use the unique names.
+def modularByEclipseName = null
+def modularProject = { String name ->
+    if (modularByEclipseName == null) {
+        modularByEclipseName = gradle.rootProject.allprojects
+            .findAll { it.plugins.hasPlugin('eclipse') }
+            .collectEntries { [(it.eclipse.project.name): isModular(it)] }
+    }
+    modularByEclipseName[name]
+}
+
+// Multi-release source sets (java21, java24, ... as in Spring Framework): an Eclipse
+// project has one Java level. Use the highest one, as the build's own Eclipse setup
+// does. Spring sets it only in eclipse.jdt.file.whenMerged (the `eclipse` task),
+// and Buildship reads eclipse.jdt.sourceCompatibility instead.
+gradle.projectsEvaluated {
+    gradle.rootProject.allprojects.each { p ->
+        if (!p.plugins.hasPlugin('eclipse') || !p.plugins.hasPlugin('java')) return
+        def versions = p.sourceSets.names.findAll { it ==~ /java\d+/ }.collect { (it - 'java') as int }
+        if (versions) {
+            def level = JavaVersion.toVersion(versions.max())
+            p.eclipse.jdt.sourceCompatibility = level
+            p.eclipse.jdt.targetCompatibility = level
+        }
+    }
+}
+
+gradle.projectsEvaluated {
+    gradle.rootProject.allprojects.each { p ->
+        if (!p.plugins.hasPlugin('eclipse') || !p.plugins.hasPlugin('java') || !isModular(p)) return
+        p.eclipse.classpath.file.whenMerged { cp ->
+            cp.entries.each { e ->
+                if (e.kind == 'con' && e.path.startsWith('org.eclipse.jdt.launching.JRE_CONTAINER')) {
+                    e.entryAttributes['module'] = 'true'
+                } else if (e.kind == 'lib' && usedByMain(e) && isModuleJar(e.path)) {
+                    e.entryAttributes['module'] = 'true'
+                } else if (e instanceof org.gradle.plugins.ide.eclipse.model.ProjectDependency && usedByMain(e)
+                        && modularProject(e.path.substring(1))) {
+                    e.entryAttributes['module'] = 'true'
+                }
+            }
+        }
+    }
+}

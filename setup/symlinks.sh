@@ -19,8 +19,13 @@ link aliases       ~/.aliases
 link wezterm.lua   ~/.wezterm.lua
 link alacritty     ~/.config/alacritty
 link rio           ~/.config/rio
-link helix         ~/.config/helix
+link nvim          ~/.config/nvim
 link yazi          ~/.config/yazi
 link git           ~/.config/git
 # only the file: ~/.config/herdr also holds herdr's sockets, logs and sessions
 link herdr/config.toml ~/.config/herdr/config.toml
+
+# rio/themes is a git submodule (bewa1t/seoul256-rio); a pull doesn't check it
+# out. Last, so a failed checkout (e.g. offline) fails this script and the shell
+# setup in zshrc.zsh runs it again on the next shell.
+git -C "$DOT" submodule update --init --quiet

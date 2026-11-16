@@ -1,4 +1,4 @@
-# lsp: language servers Helix uses (vtsls is set in helix/languages.toml).
+# lsp: language servers for the editor and Claude Code plugins.
 tool pylsp                       /opt/homebrew/bin/pylsp                       'brew install python-lsp-server'
 tool vtsls                       /opt/homebrew/bin/vtsls                       'brew install vtsls'
 # for Claude Code's typescript-lsp plugin; works in projects with typescript in node_modules
@@ -6,3 +6,8 @@ tool typescript-language-server  /opt/homebrew/bin/typescript-language-server  '
 tool lua-language-server         /opt/homebrew/bin/lua-language-server         'brew install lua-language-server'
 tool taplo                       /opt/homebrew/bin/taplo                       'brew install taplo'
 tool vscode-json-language-server /opt/homebrew/bin/vscode-json-language-server 'brew install vscode-langservers-extracted'
+# jdtls (Java): optional, built from the fork (~10 min, needs Java 25). Turn it on
+# for this machine with `export ENABLE_JDTLS=1` in ~/.env/jdtls.sh.
+if [[ "$ENABLE_JDTLS" == 1 ]]; then
+    tool jdtls "$HOME/.local/bin/jdtls" "sh '$DOT_DIR/setup/jdtls.sh'"
+fi

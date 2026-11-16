@@ -1,0 +1,6 @@
+# JDT compiler settings for jdtls (java.settings.url in
+# nvim-config lua/config/lsp.lua). jdtls defaults apply to everything else.
+#
+# javac and the Eclipse compiler use different @SuppressWarnings names, so a
+# suppression that javac needs is "unnecessary" for Eclipse: noise, not a problem.
+org.eclipse.jdt.core.compiler.problem.unusedWarningToken=ignore

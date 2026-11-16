@@ -17,7 +17,6 @@ if [[ -n "$_head" && "$(<"$_stamp")" != "$_head" ]] 2>/dev/null; then
     for _step in \
         symlinks.sh \
         install.sh \
-        helix-grammars.sh \
         theme-sync.sh \
         menu-bar.sh \
         ai-vim-mode.sh; do
@@ -31,6 +30,9 @@ if [[ -n "$_head" && "$(<"$_stamp")" != "$_head" ]] 2>/dev/null; then
 fi
 unset _stamp _head _failed _step
 
+# Local env vars first: checks read flags from them (e.g. ENABLE_JDTLS).
+source "$DOT_DIR/setup/envs.zsh"
+
 # Checks: warn about missing tools (setup/install.sh installs them).
 source "$DOT_DIR/checks/lib.zsh"
 for _check in "$DOT_DIR"/checks/*.sh; do
@@ -39,8 +41,7 @@ done
 unset _check
 
 # Setup: one file per tool, each skips itself if its tool is missing.
-source "$DOT_DIR/setup/envs.zsh"
-source "$DOT_DIR/setup/helix.zsh"
+source "$DOT_DIR/setup/editor.zsh"
 source "$DOT_DIR/setup/zsh.zsh"
 source "$DOT_DIR/setup/sdkman.zsh"
 source "$DOT_DIR/setup/nvm.zsh"
