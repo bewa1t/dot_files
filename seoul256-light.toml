@@ -1,0 +1,60 @@
+# seoul256-light for Rio. Colors from seoul256.vim by Junegunn Choi (MIT).
+[colors]
+
+# Normal
+foreground       = '#616161'
+background       = '#E1E1E1'
+black            = '#616161'
+red              = '#BE7572'
+green            = '#719872'
+yellow           = '#BE9873'
+blue             = '#7299BC'
+magenta          = '#9A7599'
+cyan             = '#719899'
+white            = '#E9E9E9'
+
+# Cursor
+cursor           = '#616161'
+vi-cursor        = '#7299BC'
+
+# Tab titles and split borders
+tabs             = '#757575'
+tabs-active      = '#4B4B4B'
+split            = '#C8C8C8'
+split-active     = '#719899'
+
+# Selection (Vim: Visual)
+selection-foreground = '#616161'
+selection-background = '#BCDEDE'
+
+# Search (Vim: Search, IncSearch)
+search-match-foreground         = '#F1F1F1'
+search-match-background         = '#70BDDF'
+search-focused-match-foreground = '#FFDD00'
+search-focused-match-background = '#565656'
+
+# Hints
+hint-foreground  = '#616161'
+hint-background  = '#FFDE99'
+
+# Dim colors
+dim-foreground   = '#A1A1A1'
+dim-black        = '#616161'
+dim-red          = '#BE7572'
+dim-green        = '#719872'
+dim-yellow       = '#BE9873'
+dim-blue         = '#7299BC'
+dim-magenta      = '#9A7599'
+dim-cyan         = '#719899'
+dim-white        = '#E9E9E9'
+
+# Bright colors
+light-foreground = '#4B4B4B'
+light-black      = '#4B4B4B'
+light-red        = '#9B1300'
+light-green      = '#006F00'
+light-yellow     = '#E19972'
+light-blue       = '#0099BD'
+light-magenta    = '#9B1D72'
+light-cyan       = '#009799'
+light-white      = '#F1F1F1'
