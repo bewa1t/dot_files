@@ -82,6 +82,7 @@ end })
 -- Lighter light background: 255 (#F1F1F1), not the default 253. seoul256 reads
 -- g:seoul256_background on every load, and its value also picks dark or light,
 -- so set it for the current 'background' before each load.
+-- Dark: 233 (darkest) to 239. Light: 252 to 256 (white).
 local SEOUL256_DARK_BG, SEOUL256_LIGHT_BG = 237, 255
 vim.api.nvim_create_autocmd('ColorSchemePre', { pattern = 'seoul256*', callback = function()
   vim.g.seoul256_background = vim.o.background == 'light' and SEOUL256_LIGHT_BG or SEOUL256_DARK_BG
