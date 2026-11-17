@@ -3,7 +3,7 @@
 
 # Normal
 foreground       = '#616161'
-background       = '#E1E1E1'
+background       = '#F1F1F1'
 black            = '#616161'
 red              = '#BE7572'
 green            = '#719872'
@@ -20,7 +20,7 @@ vi-cursor        = '#7299BC'
 # Tab titles and split borders
 tabs             = '#757575'
 tabs-active      = '#4B4B4B'
-split            = '#C8C8C8'
+split            = '#D9D9D9'
 split-active     = '#719899'
 
 # Selection (Vim: Visual)
@@ -38,7 +38,7 @@ hint-foreground  = '#616161'
 hint-background  = '#FFDE99'
 
 # Dim colors
-dim-foreground   = '#A1A1A1'
+dim-foreground   = '#A9A9A9'
 dim-black        = '#616161'
 dim-red          = '#BE7572'
 dim-green        = '#719872'

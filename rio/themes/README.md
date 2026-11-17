@@ -34,7 +34,7 @@ palette), so the terminal background matches Vim and Neovim with
 
 | | dark | light |
 |---|---|---|
-| background | `#4B4B4B` (237) | `#E1E1E1` (253) |
+| background | `#4B4B4B` (237) | `#F1F1F1` (255) |
 | foreground | `#D9D9D9` (252) | `#616161` (239) |
 
 - The 16 ANSI colors use the same seoul256 color numbers as the
