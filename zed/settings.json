@@ -1,0 +1,109 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Zed (Default)",
+    "dark": "Catppuccin Mocha"
+  },
+  "agent_ui_font_family": "Tahoma",
+  "vim": {
+    "toggle_relative_line_numbers": true
+  },
+  "title_bar": {
+    "show_sign_in": false
+  },
+  "autosave": "on_focus_change",
+  "cli_default_open_behavior": "existing_window",
+  "agent_ui_font_size": 13.0,
+  "agent_buffer_font_size": 13.0,
+  "buffer_font_family": "iMWritingMono Nerd Font",
+  "ui_font_family": "iMWritingMono Nerd Font",
+  "terminal": {
+    "font_family": "iMWritingMono Nerd Font",
+    "font_size": 13.0
+  },
+  "git_panel": {
+    "tree_view": true
+  },
+  "diff_view_style": "unified",
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+    "anthropic_retention": false
+  },
+  "session": {
+    "trust_all_worktrees": true
+  },
+  "vim_mode": true,
+  "minimap": {
+    "show": "never",
+    "thumb": "always"
+  },
+  "show_whitespaces": "all",
+  "soft_wrap": "editor_width",
+  "agent_servers": {
+    "codex-acp": {
+      "type": "registry"
+    },
+    "claude-acp": {
+      "type": "registry"
+    }
+  },
+  "base_keymap": "JetBrains",
+  "ui_font_size": 13.0,
+  "buffer_font_size": 13.0,
+  "theme": {
+    "mode": "light",
+    "light": "Seoul256 Light",
+    "dark": "Catppuccin Mocha",
+  },
+  // Seoul256 Light with background 255 (#F1F1F1), the same as nvim, Rio and herdr.
+  // The theme uses xterm grays for background 253; each one here is 2 steps
+  // lighter in seoul256's own palette (colors/seoul256.vim), e.g. 253 -> 255.
+  "theme_overrides": {
+    "Seoul256 Light": {
+      // 253 #dadada -> 255
+      "background": "#f1f1f1",
+      "surface.background": "#f1f1f1",
+      "status_bar.background": "#f1f1f1",
+      "title_bar.background": "#f1f1f1",
+      "toolbar.background": "#f1f1f1",
+      "tab_bar.background": "#f1f1f1",
+      "tab.active_background": "#f1f1f1",
+      "panel.background": "#f1f1f1",
+      "scrollbar.track.background": "#f1f1f1",
+      "editor.background": "#f1f1f1",
+      "editor.gutter.background": "#f1f1f1",
+      "terminal.background": "#f1f1f1",
+      // 254 #e4e4e4 -> 256 (white)
+      "elevated_surface.background": "#ffffff",
+      // 252 #d9d9d9 -> 254
+      "title_bar.inactive_background": "#e9e9e9",
+      // 251 #c6c6c6 / #d1d0d1 -> 253
+      "border.variant": "#e1e1e1",
+      "element.background": "#e1e1e1",
+      "element.disabled": "#e1e1e1",
+      "ghost_element.hover": "#e1e1e1",
+      "ghost_element.disabled": "#e1e1e1",
+      "tab.inactive_background": "#e1e1e1",
+      "editor.subheader.background": "#e1e1e1",
+      "editor.highlighted_line.background": "#e1e1e1",
+      "editor.active_line.background": "#e1e1e1",
+      // 250 #bcbcbc -> 252
+      "border": "#d9d9d9",
+      "element.hover": "#d9d9d9",
+      "ghost_element.active": "#d9d9d9",
+      "pane_group.border": "#d9d9d9",
+      "editor.wrap_guide": "#d9d9d9",
+      // 249 #b2b2b2 -> 251
+      "element.active": "#d1d0d1",
+    },
+  },
+}

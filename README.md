@@ -38,7 +38,7 @@ commit changes (e.g. after `git pull`), and retries them if one failed. Delete
 | `setup/*.sh` | The install steps above (run by hand or by `install.sh`). |
 | `env/` | `~/.env`: local env vars and secrets. `*.sh` is git-ignored. |
 | `aliases/` | `~/.aliases`: local aliases. `*.sh` is git-ignored. |
-| `alacritty/`, `rio/`, `nvim/`, `yazi/` | App configs, linked into `~/.config/` |
+| `alacritty/`, `rio/`, `nvim/`, `yazi/`, `zed/` | App configs, linked into `~/.config/` |
 | `rio/themes/` | Copy of [bewa1t/seoul256-rio](https://github.com/bewa1t/seoul256-rio) (seoul256 dark/light), added with `git subtree`, so clone and pull include it. Get a new version: `git subtree pull --prefix rio/themes https://github.com/bewa1t/seoul256-rio main --squash` |
 | `herdr/config.toml` | herdr config, linked as `~/.config/herdr/config.toml` (only the file) |
 | `git/` | `~/.config/git`: shared git defaults (Neovim as editor and merge tool) and global ignore. Name and email stay in `~/.gitconfig`. |
@@ -49,6 +49,7 @@ commit changes (e.g. after `git pull`), and retries them if one failed. Delete
 
 `env/*.sh` and `aliases/*.sh` never get committed. Put machine-specific
 settings there, e.g. `env/cpp_setup.sh` or `aliases/personal.sh`.
+`zed/prompts/` (Zed's prompt library database) is also git-ignored.
 
 ## Adding a tool
 
