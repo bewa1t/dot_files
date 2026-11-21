@@ -41,7 +41,7 @@
   "session": {
     "trust_all_worktrees": true
   },
-  "vim_mode": true,
+  "vim_mode": false,
   "minimap": {
     "show": "never",
     "thumb": "always"
