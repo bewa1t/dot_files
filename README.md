@@ -20,13 +20,16 @@ This clones the repo to `~/.dotfiles` (override with `DOT_DIR=...`) and runs:
 4. `setup/menu-bar.sh` – builds `menu-bar-sync` and loads its LaunchAgent. The
    menu bar hides "Always" with an external display and "In Full Screen Only"
    without one.
-5. `setup/ai-vim-mode.sh` – turns on vim mode in Claude Code, Codex and Pi
-   (via `pi/modal-editor.ts`) if they're installed and the setting isn't set.
 
 Every step is safe to re-run, so the same command also updates a machine.
 After that, a new shell runs these steps by itself whenever the checked-out
-commit changes (e.g. after `git pull`), and retries them if one failed. Delete
-`~/.local/state/dotfiles/setup-done` to force a re-run.
+commit or `DOT_VIM_MODE` changes (e.g. after `git pull`), and retries them if
+one failed. Delete `~/.local/state/dotfiles/setup-done` to force a re-run.
+
+The shell also runs `setup/ai-vim-mode.sh`. It turns vim mode on or off in
+Zed, Claude Code, Codex and Pi (via `pi/modal-editor.ts`) from
+`DOT_VIM_MODE` in `zshrc.zsh`: `1` = on, `0` = off. A new shell applies a
+change.
 
 ## Layout
 

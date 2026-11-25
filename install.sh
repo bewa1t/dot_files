@@ -24,6 +24,5 @@ sh  "$DOT_DIR/setup/symlinks.sh"
 zsh "$DOT_DIR/setup/install.sh"
 sh  "$DOT_DIR/setup/theme-sync.sh"
 sh  "$DOT_DIR/setup/menu-bar.sh"
-sh  "$DOT_DIR/setup/ai-vim-mode.sh"
 
 echo "Done. Open a new terminal to load the shell config."
